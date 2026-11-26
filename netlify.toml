@@ -1,0 +1,5 @@
+# Builds the app when its source code is present (package.json at the repo root).
+# Until then, publishes a placeholder page so deploys don't fail.
+[build]
+  command = "if [ -f package.json ]; then npm run build; else rm -rf dist && mkdir -p dist && cp netlify-placeholder/index.html dist/index.html; fi"
+  publish = "dist"
